@@ -34,7 +34,7 @@ body {
 }
 
 .title {
-    font-family: var(--title-font);
+    font-family: var(--text-font);
     font-size: 4em;
     margin-bottom: 10px;
 }
