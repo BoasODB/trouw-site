@@ -35,15 +35,15 @@ body {
 
 .title {
     font-family: var(--title-font);
-    font-size: 6em;
+    font-size: 4em;
     margin-bottom: 10px;
 }
 
 .date {
-    font-size: 3em;
+    font-size: 1.8em;
     margin-bottom: 10px;
 }
 
 .coming-soon {
-    font-size: 3em;
+    font-size: 1.8em;
 }
