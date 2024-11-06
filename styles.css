@@ -1,7 +1,7 @@
 /* Define variables for easy customization */
 :root {
     --background-color: #e6e2d7;
-    --title-font: 'Ferly', sans-serif;
+    --title-font: 'Petit Formal Script', cursive;
     --text-font: 'Cormorant SC', serif;
     --text-color: #333333;
 }
@@ -34,7 +34,7 @@ body {
 }
 
 .title {
-    font-family: var(--text-font);
+    font-family: var(--title-font);
     font-size: 4em;
     margin-bottom: 10px;
 }
