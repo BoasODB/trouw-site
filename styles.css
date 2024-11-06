@@ -36,7 +36,7 @@ body {
 .title {
     font-family: var(--title-font);
     font-size: 4em;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .date {
