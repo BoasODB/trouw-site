@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple coming soon page for Lisa & Jarno's website">
+    <meta name="description" content="Lisa & Jarno's website">
     <title>Lisa & Jarno</title>
-    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="styles/style-main.css">
     <link href="https://fonts.googleapis.com/css2?family=Ferly&family=Cormorant+SC:wght@400&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,14 +24,7 @@
         </form>
     </div>
 
-    <script>
-        function redirectToPage(event) {
-            event.preventDefault();
-            const userInput = document.getElementById('redirect-input').value;
-            const url = `https://lisaenjarno.nl/${encodeURIComponent(userInput)}`;
-            window.location.href = url;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 

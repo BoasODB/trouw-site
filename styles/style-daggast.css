@@ -1,0 +1,194 @@
+/* Define variables for easy customization */
+:root {
+    --background-color: #e6e2d7;
+    --title-font: 'Petit Formal Script', cursive;
+    --text-font: 'Cormorant SC', serif;
+    --text-color-green: #557c70;
+    --text-color-hover: #8db2a7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: var(--text-font);
+    color: black;
+    flex-direction: column; /* Stack pages vertically */
+    height: 800vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: var(--text-color-green);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-image {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: var(--title-font);
+    font-size: 6em;
+    font-weight: 200;
+    margin-bottom: 80px;
+}
+
+.date {
+    font-size: 1.8em;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    font-size: 1.8em;
+}
+
+.takje-links {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 80%; 
+    max-height: 80%; 
+    margin-bottom: 0; 
+}
+
+.bloem-rechts {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.vlek-linksboven {
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%;
+    position: absolute;
+    left: 0;
+    top: 100vh;
+}
+
+.page  {
+    height: 100vh; /* Full height for each page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#page1 {
+    background-color: var(--background-color);
+    margin-top: 0;
+    
+}
+
+#page2 {
+    background-color: var(--text-color-green);
+    color: #f6f2e7; 
+    font-size: 2.5em; 
+    font-family: var(--title-font);
+    font-weight: 100;
+    word-wrap: break-word;
+}
+
+#page2-text {
+    z-index: 1;
+}
+
+#page3 {
+    background-color: blue; /* Blue background */
+    color: white; /* White text */
+    font-size: 2em; /* Font size */
+}
+
+#page4 {
+    background-color: var(--background-color);
+    margin-top: 0;
+    
+}
+
+#page5 {
+    background-color: green; /* Blue background */
+    color: white; /* White text */
+    font-size: 2em; /* Font size */
+}
+
+#page6 {
+    background-color: blue; /* Blue background */
+    color: white; /* White text */
+    font-size: 2em; /* Font size */
+}
+
+#page7 {
+    background-color: green; /* Blue background */
+    color: white; /* White text */
+    font-size: 2em; /* Font size */
+}
+
+#page8 {
+    background-color: blue; /* Blue background */
+    color: white; /* White text */
+    font-size: 2em; /* Font size */
+}
+
+/* Style for navigation buttons */
+.nav-buttons {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--background-color); /* Background color for the box */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Add padding to create space inside the box */
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Horizontally center the buttons */
+    align-items: center; /* Vertically center the buttons */
+    height: 45px;
+}
+
+.nav-buttons button {
+    padding-bottom: 5px;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--text-color-green);
+    background-color: var(--background-color);
+    border: none;
+    display: inline-block;
+}
+
+.nav-buttons button:hover {
+    color: var(--text-color-hover); /* Change arrow color on hover */
+}
+
+
+@media screen and (max-width: 768px) {
+    .takje-links, .bloem-rechts {
+        display: none; /* Hide images on phones */
+    }
+
+    .title {
+        font-size: 3em; /* Make the title text smaller */
+    }
+}
