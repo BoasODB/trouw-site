@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple coming soon page for Lisa & Jarno's website">
     <title>Lisa & Jarno</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style-main.css">
     <link href="https://fonts.googleapis.com/css2?family=Ferly&family=Cormorant+SC:wght@400&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,25 @@
     <link rel="icon" href="images/favicon-32.png" type="image/png">
 </head>
 <body>
+    <img src="images/takje-main.png" alt="takje-main" class="takje-links">
+    <img src="images/bloem-roze.png" alt="takje-main" class="bloem-rechts">
     <div class="container">
-        <img src="images/takje-main.png" alt="takje-main" class="main-image">
         <h1 class="title">Lisa & Jarno</h1>
         <p class="date">23.05.2025</p>
-        <p class="coming-soon">Coming Soon</p>
+        <form class="redirect-form" onsubmit="redirectToPage(event)">
+            <input type="text" id="redirect-input" placeholder="Vul hier uw code in" required>
+            <button type="submit">Go</button>
+        </form>
     </div>
+
+    <script>
+        function redirectToPage(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('redirect-input').value;
+            const url = `https://lisaenjarno.nl/${encodeURIComponent(userInput)}`;
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
 
