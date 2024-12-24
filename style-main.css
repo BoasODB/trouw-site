@@ -99,3 +99,13 @@ button {
 button:hover {
     background-color: #8db2a7;
 }
+
+@media screen and (max-width: 768px) {
+    .takje-links, .bloem-rechts {
+        display: none; /* Hide images on phones */
+    }
+
+    .title {
+        font-size: 3em; /* Make the title text smaller */
+    }
+}
