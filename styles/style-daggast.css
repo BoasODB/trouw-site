@@ -5,6 +5,7 @@
     --text-font: 'Cormorant SC', serif;
     --text-color-green: #557c70;
     --text-color-hover: #8db2a7;
+    --text-color-white: #f6f2e7;
 }
 
 * {
@@ -88,6 +89,36 @@ body {
     top: 100vh;
 }
 
+.takje-boven-title {
+    rotate: -90deg;
+    width: 10%;
+    height: auto;
+    margin-bottom: -100px;
+    margin-top: -150px;
+}
+
+.grote-bloem-links {
+    position: absolute;
+    bottom: -300vh;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 80%; 
+    max-height: 80%; 
+    margin-bottom: 0; 
+}
+
+.kleine-bloem-rechts {
+    position: absolute;
+    bottom: -300vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 30%; 
+    max-height: 30%; 
+    margin-bottom: 0; 
+}
+
 .page  {
     height: 100vh; /* Full height for each page */
     display: flex;
@@ -105,27 +136,67 @@ body {
 
 #page2 {
     background-color: var(--text-color-green);
-    color: #f6f2e7; 
+    color: var(--text-color-white); 
     font-size: 2.5em; 
     font-family: var(--title-font);
     font-weight: 100;
     word-wrap: break-word;
 }
 
-#page2-text {
-    z-index: 1;
-}
-
 #page3 {
-    background-color: blue; /* Blue background */
-    color: white; /* White text */
-    font-size: 2em; /* Font size */
+    background-color: var(--background-color); 
+    color: var(--text-color-green); 
 }
 
 #page4 {
-    background-color: var(--background-color);
-    margin-top: 0;
-    
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
+}
+
+.line-and-text {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%; /* Adjust width to fit within the page */
+    height: 80%; /* Vertical line spans 80% of the page height */
+}
+
+/* Vertical line */
+.line {
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    bottom: 10%;
+    width: 5px; /* Thin line */
+    background-color: var(--text-color-white);
+    transform: translateX(-50%); /* Center the line */
+}
+
+/* Style for the text boxes container */
+.text-boxes {
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    width: 50%;
+    gap: 5px; /* Space between the text boxes */
+    transform: translateX(50%);
+}
+
+/* Style for individual text boxes */
+.text-box {
+    width: 45%; /* Text box width */
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.left {
+    align-self: flex-start; /* Align text boxes to the left */
+}
+
+.right {
+    align-self: flex-end; /* Align text boxes to the right */
 }
 
 #page5 {
