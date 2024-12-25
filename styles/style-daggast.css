@@ -1,8 +1,9 @@
 /* Define variables for easy customization */
 :root {
-    --background-color: #e6e2d7;
+    --background-color: #f6f2e7;
     --title-font: 'Petit Formal Script', cursive;
     --text-font: 'Cormorant SC', serif;
+    --subtext-font: 'Cormorant Garamont', serif;
     --text-color-green: #557c70;
     --text-color-hover: #8db2a7;
     --text-color-white: #f6f2e7;
@@ -68,6 +69,17 @@ body {
     margin-bottom: 0; 
 }
 
+.bloemenpaar {
+    position: absolute;
+    bottom: -500vh;
+    left: 30px;
+    width: auto; 
+    height: auto;
+    max-width: 650%; 
+    max-height: 65%; 
+    margin-bottom: 0; 
+}
+
 .bloem-rechts {
     position: absolute;
     bottom: 0;
@@ -89,6 +101,17 @@ body {
     top: 100vh;
 }
 
+.vlek-rechtsboven {
+    position: absolute;
+    bottom: -640vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
 .takje-boven-title {
     rotate: -90deg;
     width: 10%;
@@ -108,6 +131,17 @@ body {
     margin-bottom: 0; 
 }
 
+.plant-links {
+    position: absolute;
+    bottom: -400vh;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 65%; 
+    max-height: 65%; 
+    margin-bottom: 0; 
+}
+
 .kleine-bloem-rechts {
     position: absolute;
     bottom: -300vh;
@@ -119,6 +153,29 @@ body {
     margin-bottom: 0; 
 }
 
+.vlek-rechtsonder {
+    position: absolute;
+    bottom: -400vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.vlek-rechtsonder-2 {
+    z-index: 1;
+    position: absolute;
+    bottom: -600vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
 .page  {
     height: 100vh; /* Full height for each page */
     display: flex;
@@ -126,6 +183,7 @@ body {
     align-items: center;
     text-align: center;
     flex-direction: column;
+    scroll-snap-align: start;
 }
 
 #page1 {
@@ -200,27 +258,23 @@ body {
 }
 
 #page5 {
-    background-color: green; /* Blue background */
-    color: white; /* White text */
-    font-size: 2em; /* Font size */
+    background-color: var(--background-color);
+    color: var(--text-color-green);
 }
 
 #page6 {
-    background-color: blue; /* Blue background */
-    color: white; /* White text */
-    font-size: 2em; /* Font size */
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
 }
 
 #page7 {
-    background-color: green; /* Blue background */
-    color: white; /* White text */
-    font-size: 2em; /* Font size */
+    background-color: var(--background-color);
+    color: var(--text-color-green); /* White text */
 }
 
 #page8 {
-    background-color: blue; /* Blue background */
-    color: white; /* White text */
-    font-size: 2em; /* Font size */
+    background-color: var(--background-color);
+    color: var(--text-color-green);
 }
 
 /* Style for navigation buttons */
@@ -251,6 +305,73 @@ body {
 
 .nav-buttons button:hover {
     color: var(--text-color-hover); /* Change arrow color on hover */
+}
+
+/* Button styling similar to the text box */
+.rsvp-button {
+    margin-top: 80px;
+    display: inline-block;
+    padding: 15px 30px; /* Adjust padding for size */
+    font-family: var(--text-font);
+    font-size: 2em; /* Text size */
+    text-align: center;
+    color: var(--text-color-green); /* Text color */
+    background-color: var(--text-color-white); /* Background color */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+/* Hover effect */
+.rsvp-button:hover {
+    color: var(--text-color-white);
+    background-color: var(--text-color-green); /* Slightly lighter background */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Active (pressed) effect */
+.rsvp-button:active {
+    transform: translateY(2px); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 60px; /* Space between boxes */
+    width: 80%; /* Adjust grid width */
+    margin: 20px auto; /* Center grid */
+}
+
+/* Individual grid box styling */
+.grid-box {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--subtext-font);
+    background-color: var(--text-color-green); /* Box background */
+    color: var(--background-color); /* Text color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the text */
+}
+
+/* Subtitle styling */
+.subtitle {
+    font-family: var(--text-font);
+    font-weight: 100;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Small text styling */
+.small-text {
+    font-size: 1.2em;
+    line-height: 1.4;
 }
 
 

@@ -43,3 +43,42 @@ function redirectToPage(event) {
     const url = `https://lisaenjarno.nl/${encodeURIComponent(userInput)}`;
     window.location.href = url;
 }
+
+
+// let isScrolling = false;
+
+// window.addEventListener('wheel', (event) => {
+//     if (isScrolling) return; // Prevent multiple triggers during animation
+
+//     isScrolling = true;
+
+//     // Get all pages and current scroll position
+//     const pages = document.querySelectorAll('.page');
+//     const currentScroll = window.scrollY;
+//     const viewportHeight = window.innerHeight;
+
+//     // Calculate the current page index
+//     const currentPageIndex = Math.round(currentScroll / viewportHeight);
+
+//     // Determine the scroll direction
+//     const direction = event.deltaY > 0 ? 1 : -1;
+
+//     // Calculate the target page index
+//     const targetPageIndex = Math.max(
+//         0,
+//         Math.min(currentPageIndex + direction, pages.length - 1)
+//     );
+
+//     // Scroll to the target page
+//     const targetPosition = targetPageIndex * viewportHeight;
+//     window.scrollTo({
+//         top: targetPosition,
+//         behavior: 'smooth',
+//     });
+
+//     // Reset scrolling lock after a delay
+//     setTimeout(() => {
+//         isScrolling = false;
+//     }, 1000); // Adjust timing to match animation duration
+// });
+
