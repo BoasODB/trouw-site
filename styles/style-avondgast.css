@@ -212,7 +212,7 @@ body {
 
 #page3 {
     background-color: var(--background-color); 
-    color: black; 
+    color: var(--text-color-green); 
 }
 
 #page4 {
@@ -241,7 +241,7 @@ body {
 
 /* Style for the text boxes container */
 .text-boxes {
-    font-size: 1.5em;
+    font-size: 2em;
     display: flex;
     flex-direction: column;
     left: 50%;
@@ -362,11 +362,10 @@ body {
     flex-direction: column;
     justify-content: center;
     font-family: var(--subtext-font);
-    background-color: var(--text-color-green); /* Box background */
-    color: var(--background-color); /* Text color */
+    background-color: none; /* Box background */
+    color: var(--text-color-green); /* Text color */
     border-radius: 10px; /* Rounded corners */
     padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center; /* Center the text */
 }
 

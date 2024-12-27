@@ -232,7 +232,7 @@ body {
 
 /* Style for the text boxes container */
 .text-boxes {
-    font-size: 1.5em;
+    font-size: 2em;
     display: flex;
     flex-direction: column;
     left: 50%;
@@ -352,11 +352,10 @@ body {
     flex-direction: column;
     justify-content: center;
     font-family: var(--subtext-font);
-    background-color: var(--text-color-green); /* Box background */
-    color: var(--background-color); /* Text color */
+    background-color: none; /* Box background */
+    color: var(--text-color-green); /* Text color */
     border-radius: 10px; /* Rounded corners */
     padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center; /* Center the text */
 }
 
@@ -376,11 +375,81 @@ body {
 
 
 @media screen and (max-width: 768px) {
-    .takje-links, .bloem-rechts {
+    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .vlek-rechtsboven {
         display: none; /* Hide images on phones */
+    }
+/* 
+    .page {
+        width: 100%;
+    } */
+
+    .bloemenpaar {
+        width: 30%;
+        height: 30%;
+        left: 0;
+    }
+
+    #takje-weg {
+        display: none;
+    }
+
+    .takje-boven-main, .takje-links-mobile {
+        display: initial;
+    }
+
+    .line-and-text {
+        display: none;
+    }
+
+    .line-and-text-mobile {
+        display: initial;
+    }
+
+    .text-box {
+        width: 100%;
+        font-size: 2em;
     }
 
     .title {
         font-size: 3em; /* Make the title text smaller */
     }
+
+    .vlek-linksboven {
+        top: 99vh;
+    }
+
+
+    /* Reduce size of the grid and its boxes */
+    .grid {
+        grid-template-columns: 1fr; /* One column on smaller screens */
+        gap: 20px; /* Reduce space between boxes */
+    }
+
+    .grid-box {
+        font-size: 1em; /* Smaller font for grid content */
+        padding: 10px; /* Reduce padding */
+    }
+
+    /* Adjust subtitle and small text sizes */
+    .subtitle {
+        font-size: 1.5em; /* Slightly smaller subtitle */
+    }
+
+    .small-text {
+        font-size: 1em; /* Reduce font size for details */
+    }
+
+    /* Resize and reposition images */
+    img {
+        max-width: 70%; /* Limit image size */
+        height: auto;
+        margin: 10px auto; /* Center images and add spacing */
+    }
+
+    /* Adjust the RSVP button */
+    .rsvp-button {
+        font-size: 1.5em; /* Reduce button text size */
+        padding: 10px 20px; /* Adjust button size */
+    }
+
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+</head>
+<body>
+    <h1>Upload an Image or Video</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="file" accept="image/*,video/*" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            
+            if (!file) {
+                alert("Please select a file to upload.");
+                return;
+            }
+
+            var formData = new FormData();
+            formData.append('file', file);
+
+            // Upload file to file.io
+            fetch('https://file.io', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    var downloadLink = data.link;
+                    console.log("File uploaded! Download link: " + downloadLink);
+
+                    // Send the download link to the Google Apps Script web app
+                    fetch('https://script.google.com/macros/s/AKfycbzx2Thu8skwLn9_zVODPt0I9d6JwPFspjIoAdEnCwPYJAC6N6stgJSiDI8fKiIRsj2IHw/exec', {
+                        method: 'POST',
+                        body: new URLSearchParams({ link: downloadLink })
+                    })
+                    .then(response => response.text())
+                    .then(responseText => {
+                        alert("File uploaded successfully!");
+                    })
+                    .catch(error => {
+                        console.error('Error sending link to Google Sheets, please call Boas: 06-20261983;', error);
+                        alert("Error saving the download link. Please call Boas: 06-20261983");
+                    });
+                } else {
+                    alert("Failed to upload file. please call Boas: 06-20261983");
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading file. Please call Boas: 06-20261983:', error);
+                alert("Error uploading file. Please call Boas: 06-20261983");
+            });
+        });
+    </script>
+</body>
+</html>
