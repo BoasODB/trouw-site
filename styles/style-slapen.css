@@ -1,0 +1,546 @@
+/* Define variables for easy customization */
+:root {
+    --background-color: #f6f2e7;
+    --title-font: 'Petit Formal Script', cursive;
+    --text-font: 'Cormorant SC', serif;
+    --subtext-font: 'Cormorant Garamont', serif;
+    --text-color-green: #557c70;
+    --text-color-hover: #8db2a7;
+    --text-color-white: #f6f2e7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: var(--text-font);
+    color: black;
+    flex-direction: column; /* Stack pages vertically */
+    height: 200vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: var(--text-color-green);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-image {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: var(--title-font);
+    font-size: 6em;
+    font-weight: 200;
+    margin-bottom: 80px;
+}
+
+.date {
+    font-size: 1.8em;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    font-size: 1.8em;
+}
+
+.takje-links {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 80%; 
+    max-height: 80%; 
+    margin-bottom: 0; 
+}
+
+.bloemenpaar {
+    position: absolute;
+    bottom: -500vh;
+    left: 30px;
+    width: auto; 
+    height: auto;
+    max-width: 650%; 
+    max-height: 65%; 
+    margin-bottom: 0; 
+}
+
+.bloem-rechts {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.vlek-linksboven {
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%;
+    position: absolute;
+    left: 0;
+    top: 100vh;
+}
+
+.vlek-rechtsboven {
+    position: absolute;
+    bottom: -640vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.takje-boven-title {
+    rotate: -90deg;
+    width: 10%;
+    height: auto;
+    margin-bottom: -100px;
+    margin-top: -150px;
+}
+
+.grote-bloem-links {
+    position: absolute;
+    bottom: -300vh;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 80%; 
+    max-height: 80%; 
+    margin-bottom: 0; 
+}
+
+.plant-links {
+    position: absolute;
+    bottom: -400vh;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 65%; 
+    max-height: 65%; 
+    margin-bottom: 0; 
+}
+
+.kleine-bloem-rechts {
+    position: absolute;
+    bottom: -300vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 30%; 
+    max-height: 30%; 
+    margin-bottom: 0; 
+}
+
+.vlek-rechtsonder {
+    position: absolute;
+    bottom: -400vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.vlek-rechtsonder-2 {
+    z-index: 1;
+    position: absolute;
+    bottom: -600vh;
+    right: 0px;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.vlek-midden {
+    position: absolute;
+    z-index: 1;
+    width: auto; 
+    height: auto;
+    max-width: 80%; 
+    max-height: 80%; 
+}
+
+.page  {
+    height: 100vh; /* Full height for each page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    scroll-snap-align: start;
+}
+
+#page1 {
+    background-color: var(--background-color);
+    margin-top: 0;
+    
+}
+
+#page2 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white); 
+    font-size: 2.5em; 
+    font-family: var(--title-font);
+    font-weight: 100;
+    word-wrap: break-word;
+}
+
+#page3 {
+    background-color: var(--background-color); 
+    color: var(--text-color-green); 
+}
+
+#page4 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
+}
+
+.line-and-text {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%; /* Adjust width to fit within the page */
+    height: 60%; /* Vertical line spans 80% of the page height */
+}
+
+/* Vertical line */
+.line {
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    bottom: 10%;
+    width: 5px; /* Thin line */
+    background-color: var(--text-color-white);
+    transform: translateX(-50%); /* Center the line */
+}
+
+/* Style for the text boxes container */
+.text-boxes {
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    width: 50%;
+    gap: 5px; /* Space between the text boxes */
+    transform: translateX(50%);
+}
+
+/* Style for individual text boxes */
+.text-box {
+    width: 45%; /* Text box width */
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.left {
+    align-self: flex-start; /* Align text boxes to the left */
+}
+
+.right {
+    align-self: flex-end; /* Align text boxes to the right */
+}
+
+#page5 {
+    background-color: var(--background-color);
+    color: var(--text-color-green);
+}
+
+#page6 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
+}
+
+#page7 {
+    background-color: var(--background-color);
+    color: var(--text-color-green); /* White text */
+}
+
+#page8 {
+    background-color: var(--background-color);
+    color: var(--text-color-green);
+}
+
+/* Style for navigation buttons */
+.nav-buttons {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--background-color); /* Background color for the box */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Add padding to create space inside the box */
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Horizontally center the buttons */
+    align-items: center; /* Vertically center the buttons */
+    height: 45px;
+}
+
+.nav-buttons button {
+    z-index: 1;
+    padding-bottom: 5px;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--text-color-green);
+    background-color: var(--background-color);
+    border: none;
+    display: inline-block;
+}
+
+.nav-buttons button:hover {
+    color: var(--text-color-hover); /* Change arrow color on hover */
+}
+
+/* Button styling similar to the text box */
+.rsvp-button {
+    margin-top: 80px;
+    display: inline-block;
+    padding: 15px 30px; /* Adjust padding for size */
+    font-family: var(--text-font);
+    font-size: 1em; /* Text size */
+    text-align: center;
+    color: var(--text-color-green); /* Text color */
+    background-color: var(--text-color-white); /* Background color */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+/* Hover effect */
+.rsvp-button:hover {
+    /* color: var(--text-color-white);
+    background-color: var(--text-color-green); Slightly lighter background */
+    transform: translateY(-4px); /* Lift effect */
+}
+
+/* Active (pressed) effect */
+.rsvp-button:active {
+    transform: translateY(4px); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+/* Menu container */
+.menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Menu toggle button (hamburger) */
+.menu-toggle {
+    background-color: var(--text-color-green);
+    color: var(--background-color);
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Menu items (hidden by default) */
+.menu-items {
+    display: none;
+    margin-top: 10px;
+    background-color: var(--text-color-green);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 1.3em;
+}
+
+/* Menu links */
+.menu-items a {
+    display: block;
+    color: var(--background-color);
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.menu-items a:hover {
+    text-decoration: underline;
+}
+
+/* Show menu when expanded */
+.menu-expanded .menu-items {
+    display: block;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 60px; /* Space between boxes */
+    width: 80%; /* Adjust grid width */
+    margin: 20px auto; /* Center grid */
+}
+
+/* Individual grid box styling */
+.grid-box {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--subtext-font);
+    background-color: none; /* Box background */
+    color: var(--text-color-green); /* Text color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px;
+    text-align: center; /* Center the text */
+}
+
+/* Subtitle styling */
+.subtitle {
+    font-family: var(--text-font);
+    font-weight: 100;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Small text styling */
+.small-text {
+    font-size: 1.2em;
+    line-height: 1.4;
+    font-family: var(--subtext-font);
+    font-weight: 80;
+    font-size: 0.5em;
+    margin-top: 80px;
+    max-width: 75%;
+}
+
+.takje-boven-main {
+    display: none;
+    rotate: -90deg;
+    width: 20%;
+    height: auto;
+}
+
+.takje-links-mobile {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: auto; 
+    height: auto;
+    max-width: 40%; 
+    max-height: 40%; 
+    margin-bottom: 0; 
+}
+
+.line-and-text-mobile {
+    display: none;
+    
+    align-items: center;
+    position: relative;
+    width: 80%; /* Adjust width to fit within the page */
+    height: 60%;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .vlek-rechtsboven {
+        display: none; /* Hide images on phones */
+    }
+/* 
+    .page {
+        width: 100%;
+    } */
+
+    .bloemenpaar {
+        width: 30%;
+        height: 30%;
+        left: 0;
+    }
+
+    #takje-weg {
+        display: none;
+    }
+
+    .takje-boven-main, .takje-links-mobile {
+        display: initial;
+    }
+
+    .line-and-text {
+        display: none;
+    }
+
+    .line-and-text-mobile {
+        display: initial;
+    }
+
+    .text-box {
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    .title {
+        font-size: 3em; /* Make the title text smaller */
+    }
+
+    .vlek-linksboven {
+        top: 99vh;
+    }
+
+
+    /* Reduce size of the grid and its boxes */
+    .grid {
+        grid-template-columns: 1fr; /* One column on smaller screens */
+        gap: 20px; /* Reduce space between boxes */
+    }
+
+    .grid-box {
+        font-size: 1em; /* Smaller font for grid content */
+        padding: 10px; /* Reduce padding */
+    }
+
+    /* Adjust subtitle and small text sizes */
+    .subtitle {
+        font-size: 1.5em; /* Slightly smaller subtitle */
+    }
+
+    .small-text {
+        font-size: 1em; /* Reduce font size for details */
+    }
+
+    /* Resize and reposition images */
+    img {
+        max-width: 70%; /* Limit image size */
+        height: auto;
+        margin: 10px auto; /* Center images and add spacing */
+    }
+
+    /* Adjust the RSVP button */
+    .rsvp-button {
+        font-size: 1.5em; /* Reduce button text size */
+        padding: 10px 20px; /* Adjust button size */
+    }
+
+}
