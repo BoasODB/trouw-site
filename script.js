@@ -82,3 +82,27 @@ function redirectToPage(event) {
 //     }, 1000); // Adjust timing to match animation duration
 // });
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Menu toggle functionality
+    const menu = document.querySelector('.menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('menu-expanded');
+    });
+
+    // Scroll to page on menu item click
+    const menuItems = document.querySelectorAll('.menu-items a');
+    menuItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            const pageId = item.getAttribute('data-page');
+            const targetPage = document.getElementById(pageId);
+
+            if (targetPage) {
+                targetPage.scrollIntoView({ behavior: 'smooth' });
+                menu.classList.remove('menu-expanded'); // Close the menu after selection
+            }
+        });
+    });
+});
+
