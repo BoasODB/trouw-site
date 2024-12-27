@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon-32.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
     <img src="images/takje-main.png" alt="takje-main" class="takje-links">
@@ -19,10 +20,12 @@
         <h1 class="title">Lisa & Jarno</h1>
         <p class="date">23.05.2025</p>
         <form id="uploadForm" enctype="multipart/form-data">
-            <input type="file" id="fileInput" name="file" accept="image/*,video/*" required>
-            <button type="submit">Upload foto's en filmpjes</button>
+            <p style="font-size: 1.5em;">Upload foto's en filmpjes</p>
+            <input type="file" id="fileInput" name="file" accept="image/*,video/*" multiple required>
+            <button type="submit">Go</button>
+            <div id="statusMessage" style="margin-top: 10px; font-size: 1.5em;"></div>
         </form>
-        <div id="statusMessage" style="margin-top: 20px; font-size: 1.2em;"></div>
+        
         <form class="redirect-form" onsubmit="redirectToPage(event)">
             <input type="text" id="redirect-input" placeholder="Vul hier uw code in" required>
             <button type="submit">Go</button>
@@ -31,56 +34,69 @@
 
     <script src="script.js"></script>
     <script>
-        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             
-            var statusMessage = document.getElementById('statusMessage');
-            var fileInput = document.getElementById('fileInput');
-            var file = fileInput.files[0];
+            const fileInput = document.getElementById('fileInput');
+            const files = fileInput.files;
             
-            if (!file) {
-                statusMessage.textContent = "Selecteer een bestand om te uploaden";
+            if (files.length === 0) {
+                alert("Please select at least one file to upload.");
                 return;
             }
 
-            var formData = new FormData();
-            formData.append('file', file);
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = "Bestanden klaarmaken..."; // Set message to "Zipping files"
 
-            statusMessage.textContent = "Uploading...";
+            try {
+                // Create a new JSZip instance
+                const zip = new JSZip();
 
-            // Upload file to file.io
-            fetch('https://file.io', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
+                // Add each selected file to the zip
+                for (const file of files) {
+                    zip.file(file.name, file);
+                }
+
+                // Generate a zipped blob
+                const zippedBlob = await zip.generateAsync({ type: "blob" });
+
+                statusMessage.textContent = "Uploaden...";
+
+                // Prepare the zipped file for upload
+                const formData = new FormData();
+                formData.append('file', zippedBlob, 'files.zip');
+
+                // Upload the zipped file to file.io
+                const response = await fetch('https://file.io', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
                 if (data.success) {
-                    var downloadLink = data.link;
+                    const downloadLink = data.link;
                     console.log("File uploaded! Download link: " + downloadLink);
-                    statusMessage.textContent = "File uploaded!";
+
+                    statusMessage.textContent = "Bijna klaar...";
 
                     // Send the download link to the Google Apps Script web app
-                    fetch('https://script.google.com/macros/s/AKfycbzx2Thu8skwLn9_zVODPt0I9d6JwPFspjIoAdEnCwPYJAC6N6stgJSiDI8fKiIRsj2IHw/exec', {
+                    const sheetsResponse = await fetch('https://script.google.com/macros/s/AKfycbzx2Thu8skwLn9_zVODPt0I9d6JwPFspjIoAdEnCwPYJAC6N6stgJSiDI8fKiIRsj2IHw/exec', {
                         method: 'POST',
                         body: new URLSearchParams({ link: downloadLink })
-                    })
-                    .then(response => response.text())
-                    .then(responseText => {
-                        statusMessage.textContent = "File uploaded succesfully!";
-                    })
-                    .catch(error => {
-                        statusMessage.textContent = 'Error sending link to Google Sheets, please call Boas: 06-20261983;', error;
-                        alert("Error saving the download link. Please call Boas: 06-20261983");
                     });
+
+                    if (sheetsResponse.ok) {
+                        statusMessage.textContent = "Upload klaar!";
+                    } else {
+                        statusMessage.textContent = "Error saving the download link to Google Sheets.";
+                    }
                 } else {
-                    alert("Failed to upload file. please call Boas: 06-20261983");
+                    statusMessage.textContent = "Failed to upload file.";
                 }
-            })
-            .catch(error => {
-                console.error('Error uploading file. Please call Boas: 06-20261983:', error);
-                alert("Error uploading file. Please call Boas: 06-20261983");
-            });
+            } catch (error) {
+                console.error('Error:', error);
+                statusMessage.textContent = "An error occurred during the process.";
+            }
         });
     </script>
 </body>
