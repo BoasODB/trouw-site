@@ -1,4 +1,6 @@
 let currentPageIndex = 0; // Track the current page index
+let isScrolling = false;
+let startY = 0;
 
 // Scroll to the next page
 function scrollToNextPage() {
@@ -29,12 +31,48 @@ function scrollToPreviousPage() {
 }
 
 window.addEventListener('wheel', function(event) {
-    event.preventDefault(); // Prevent scrolling
+//     event.preventDefault(); // Prevent scrolling
+// }, { passive: false });
+    if (isScrolling) return; // Prevent multiple scrolls during animation
+
+        const direction = event.deltaY > 0 ? 1 : -1; // Determine scroll direction
+
+        if (direction > 0) {
+            scrollToNextPage();
+        } else {
+            scrollToPreviousPage();
+        }
+
+        isScrolling = true;
+
+        // Reset scrolling lock after animation completes
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000); // Adjust timing to match scroll animation
 }, { passive: false });
 
+
+
 window.addEventListener('touchmove', function(event) {
-    event.preventDefault(); // Prevent scrolling on touch devices
-}, { passive: false });
+//     event.preventDefault(); // Prevent scrolling on touch devices
+// }, { passive: false });
+
+startY = event.touches[0].clientY; // Record where the touch started
+}, { passive: true });
+
+// Handle the touch move and determine the direction
+window.addEventListener('touchend', (event) => {
+    const endY = event.changedTouches[0].clientY; // Record where the touch ended
+    const direction = startY - endY > 0 ? 1 : -1; // Determine scroll direction
+
+    if (direction > 0) {
+        scrollToNextPage();
+    } else {
+        scrollToPreviousPage();
+    }
+});
+
+
 
 
 function redirectToPage(event) {
@@ -44,6 +82,30 @@ function redirectToPage(event) {
     window.location.href = url;
 }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Menu toggle functionality
+    const menu = document.querySelector('.menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('menu-expanded');
+    });
+
+    // Scroll to page on menu item click
+    const menuItems = document.querySelectorAll('.menu-items a');
+    menuItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            const pageId = item.getAttribute('data-page');
+            const targetPage = document.getElementById(pageId);
+
+            if (targetPage) {
+                targetPage.scrollIntoView({ behavior: 'smooth' });
+                menu.classList.remove('menu-expanded'); // Close the menu after selection
+            }
+        });
+    });
+});
 
 // let isScrolling = false;
 
@@ -81,28 +143,3 @@ function redirectToPage(event) {
 //         isScrolling = false;
 //     }, 1000); // Adjust timing to match animation duration
 // });
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Menu toggle functionality
-    const menu = document.querySelector('.menu');
-    const menuToggle = document.querySelector('.menu-toggle');
-    menuToggle.addEventListener('click', () => {
-        menu.classList.toggle('menu-expanded');
-    });
-
-    // Scroll to page on menu item click
-    const menuItems = document.querySelectorAll('.menu-items a');
-    menuItems.forEach(item => {
-        item.addEventListener('click', (event) => {
-            event.preventDefault();
-            const pageId = item.getAttribute('data-page');
-            const targetPage = document.getElementById(pageId);
-
-            if (targetPage) {
-                targetPage.scrollIntoView({ behavior: 'smooth' });
-                menu.classList.remove('menu-expanded'); // Close the menu after selection
-            }
-        });
-    });
-});
-
