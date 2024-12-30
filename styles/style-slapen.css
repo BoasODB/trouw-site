@@ -24,7 +24,7 @@ body {
     color: black;
     flex-direction: column; /* Stack pages vertically */
     height: 200vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {

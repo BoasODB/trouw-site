@@ -1,6 +1,6 @@
 let currentPageIndex = 0; // Track the current page index
-let isScrolling = false;
-let startY = 0;
+// let isScrolling = false;
+// let startY = 0;
 
 // Scroll to the next page
 function scrollToNextPage() {
@@ -30,47 +30,40 @@ function scrollToPreviousPage() {
     }
 }
 
-window.addEventListener('wheel', function(event) {
-//     event.preventDefault(); // Prevent scrolling
-// }, { passive: false });
-    if (isScrolling) return; // Prevent multiple scrolls during animation
-
-        const direction = event.deltaY > 0 ? 1 : -1; // Determine scroll direction
-
-        if (direction > 0) {
-            scrollToNextPage();
-        } else {
-            scrollToPreviousPage();
-        }
-
-        isScrolling = true;
-
-        // Reset scrolling lock after animation completes
-        setTimeout(() => {
-            isScrolling = false;
-        }, 1000); // Adjust timing to match scroll animation
-}, { passive: false });
 
 
+// window.addEventListener('wheel', function (event) {
 
-window.addEventListener('touchmove', function(event) {
-//     event.preventDefault(); // Prevent scrolling on touch devices
+//     // Determine the scroll direction
+//     const direction = event.deltaY > 0 ? 1 : -1;
+
+//     if (direction > 0) {
+//         scrollToNextPage();
+//     } else {
+//         scrollToPreviousPage();
+//     }
 // }, { passive: false });
 
-startY = event.touches[0].clientY; // Record where the touch started
-}, { passive: true });
 
-// Handle the touch move and determine the direction
-window.addEventListener('touchend', (event) => {
-    const endY = event.changedTouches[0].clientY; // Record where the touch ended
-    const direction = startY - endY > 0 ? 1 : -1; // Determine scroll direction
 
-    if (direction > 0) {
-        scrollToNextPage();
-    } else {
-        scrollToPreviousPage();
-    }
-});
+// window.addEventListener('touchmove', function(event) {
+// //     event.preventDefault(); // Prevent scrolling on touch devices
+// // }, { passive: false });
+
+// startY = event.touches[0].clientY; // Record where the touch started
+// }, { passive: true });
+
+// // Handle the touch move and determine the direction
+// window.addEventListener('touchend', (event) => {
+//     const endY = event.changedTouches[0].clientY; // Record where the touch ended
+//     const direction = startY - endY > 0 ? 1 : -1; // Determine scroll direction
+
+//     if (direction > 0) {
+//         scrollToNextPage();
+//     } else {
+//         scrollToPreviousPage();
+//     }
+// });
 
 
 

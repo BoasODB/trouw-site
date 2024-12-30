@@ -23,7 +23,7 @@ body {
     font-family: var(--text-font);
     color: black;
     flex-direction: column; /* Stack pages vertically */
-    height: 800vh;
+    height: 900vh;
     overflow: auto;
 }
 
@@ -113,7 +113,7 @@ body {
 
 .vlek-rechtsboven {
     position: absolute;
-    bottom: -640vh;
+    bottom: -740vh;
     right: 0px;
     width: auto; 
     height: auto;
@@ -283,10 +283,18 @@ body {
 }
 
 #page8 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white); 
+    font-size: 2.5em; 
+    font-family: var(--title-font);
+    font-weight: 100;
+    word-wrap: break-word;
+}
+
+#page9 {
     background-color: var(--background-color);
     color: var(--text-color-green);
 }
-
 
 /* Style for navigation buttons */
 .nav-buttons {
@@ -466,7 +474,7 @@ body {
 
 
 @media screen and (max-width: 768px) {
-    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .takje-boven-title, .vlek-linksboven-slapen {
+    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .vlek-rechtsboven, .takje-boven-title, .vlek-linksboven-slapen {
         display: none; /* Hide images on phones */
     }
 /* 
@@ -480,10 +488,6 @@ body {
 
     #program-mobile {
         margin-top: -80px;
-    }
-
-    .vlek-rechtsboven {
-        bottom: -625vh;
     }
 
     #slapen-title {

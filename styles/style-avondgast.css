@@ -24,7 +24,7 @@ body {
     color: black;
     flex-direction: column; /* Stack pages vertically */
     height: 800vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {
@@ -461,7 +461,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .vlek-rechtsboven {
+    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .nav-buttons {
         display: none; /* Hide images on phones */
     }
 /* 
@@ -477,6 +477,10 @@ body {
 
     #takje-weg {
         display: none;
+    }
+
+    .vlek-rechtsboven {
+        bottom: -625vh;
     }
 
     .takje-boven-main, .takje-links-mobile {
@@ -507,8 +511,9 @@ body {
 
     /* Reduce size of the grid and its boxes */
     .grid {
+        margin-top: -20px;
         grid-template-columns: 1fr; /* One column on smaller screens */
-        gap: 20px; /* Reduce space between boxes */
+        gap: 5px; /* Reduce space between boxes */
     }
 
     .grid-box {
