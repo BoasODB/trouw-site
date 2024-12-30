@@ -70,7 +70,7 @@ function scrollToPreviousPage() {
 
 function redirectToPage(event) {
     event.preventDefault();
-    const userInput = document.getElementById('redirect-input').value;
+    const userInput = document.getElementById('redirect-input').value.toLowerCase();
     const url = `https://lisaenjarno.nl/${encodeURIComponent(userInput)}`;
     window.location.href = url;
 }
