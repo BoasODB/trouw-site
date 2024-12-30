@@ -60,7 +60,7 @@
                 // Generate a zipped blob
                 const zippedBlob = await zip.generateAsync({ type: "blob" });
 
-                statusMessage.textContent = "Uploaden...";
+                statusMessage.textContent = "Uploaden... <br> even geduld, het kan een tijdje duren";
 
                 // Prepare the zipped file for upload
                 const formData = new FormData();
