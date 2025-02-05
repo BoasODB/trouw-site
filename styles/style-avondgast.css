@@ -23,7 +23,7 @@ body {
     font-family: var(--text-font);
     color: black;
     flex-direction: column; /* Stack pages vertically */
-    height: 800vh;
+    height: 900vh;
     overflow: auto;
 }
 
@@ -103,7 +103,7 @@ body {
 
 .vlek-rechtsboven {
     position: absolute;
-    bottom: -640vh;
+    bottom: -740vh;
     right: 0px;
     width: auto; 
     height: auto;
@@ -282,6 +282,11 @@ body {
 }
 
 #page8 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
+}
+
+#page9 {
     background-color: var(--background-color);
     color: var(--text-color-green);
 }
@@ -460,6 +465,10 @@ body {
     
 }
 
+.cadeau-mobile {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .nav-buttons {
         display: none; /* Hide images on phones */
@@ -468,6 +477,14 @@ body {
     .page {
         width: 100%;
     } */
+
+    .cadeau {
+        display: none;
+    }
+
+    .cadeau-mobile {
+        display:initial;
+    }
 
     .bloemenpaar {
         width: 30%;
@@ -480,7 +497,7 @@ body {
     }
 
     .vlek-rechtsboven {
-        bottom: -625vh;
+        bottom: -721vh;
     }
 
     .takje-boven-main, .takje-links-mobile {
