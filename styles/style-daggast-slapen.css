@@ -23,7 +23,7 @@ body {
     font-family: var(--text-font);
     color: black;
     flex-direction: column; /* Stack pages vertically */
-    height: 900vh;
+    height: 1000vh;
     overflow: auto;
 }
 
@@ -113,7 +113,7 @@ body {
 
 .vlek-rechtsboven {
     position: absolute;
-    bottom: -740vh;
+    bottom: -840vh;
     right: 0px;
     width: auto; 
     height: auto;
@@ -292,6 +292,11 @@ body {
 }
 
 #page9 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
+}
+
+#page10 {
     background-color: var(--background-color);
     color: var(--text-color-green);
 }
@@ -472,6 +477,10 @@ body {
     font-size: 1.5em;
 }
 
+.cadeau-mobile {
+    display: none;
+}
+
 
 @media screen and (max-width: 768px) {
     .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .vlek-rechtsboven, .takje-boven-title, .vlek-linksboven-slapen {
@@ -481,6 +490,14 @@ body {
     .page {
         width: 100%;
     } */
+
+    .cadeau {
+        display: none;
+    }
+
+    .cadeau-mobile {
+        display: initial;
+    }
 
     .line-and-text-mobile {
         display: initial;
