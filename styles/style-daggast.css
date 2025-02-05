@@ -23,7 +23,7 @@ body {
     font-family: var(--text-font);
     color: black;
     flex-direction: column; /* Stack pages vertically */
-    height: 800vh;
+    height: 900vh;
     overflow: auto;
 }
 
@@ -113,7 +113,7 @@ body {
 
 .vlek-rechtsboven {
     position: absolute;
-    bottom: -640vh;
+    bottom: -740vh;
     right: 0px;
     width: auto; 
     height: auto;
@@ -283,10 +283,18 @@ body {
 }
 
 #page8 {
+    background-color: var(--text-color-green);
+    color: var(--text-color-white);
+}
+
+#page9 {
     background-color: var(--background-color);
     color: var(--text-color-green);
 }
 
+.cadeau-mobile {
+    display: none;
+}
 
 /* Style for navigation buttons */
 .nav-buttons {
@@ -473,6 +481,14 @@ body {
     .page {
         width: 100%;
     } */
+
+    .cadeau {
+        display: none;
+    }
+
+    .cadeau-mobile {
+        display: initial;
+    }
 
     .line-and-text-mobile {
         display: initial;
