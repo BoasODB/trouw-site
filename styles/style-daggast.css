@@ -482,6 +482,10 @@ body {
         width: 100%;
     } */
 
+    .vlek-linksboven, .vlek-linksboven-slapen, .vlek-rechtsboven, .vlek-rechtsonder, .vlek-rechtsonder-2 {
+        display: none;
+    }
+
     .cadeau {
         display: none;
     }

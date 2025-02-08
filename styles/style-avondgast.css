@@ -497,7 +497,8 @@ body {
     }
 
     .vlek-rechtsboven {
-        bottom: -721vh;
+        /* bottom: -721vh; */
+        display: none;
     }
 
     .takje-boven-main, .takje-links-mobile {
@@ -522,7 +523,12 @@ body {
     }
 
     .vlek-linksboven {
-        top: 99vh;
+        /* top: 99vh; */
+        display: none;
+    }
+
+    .vlek-rechtsonder, .vlek-rechtsonder-2 {
+        display: none;
     }
 
 
