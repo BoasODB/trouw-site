@@ -430,6 +430,15 @@ body {
     margin-bottom: 10px;
 }
 
+.cadeau-text {
+    font-family: var(--subtext-font);
+    font-weight: 80;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    max-width: 50%;
+    line-height: 1.4;
+}
+
 /* Small text styling */
 .small-text {
     font-size: 1.2em;
@@ -465,9 +474,6 @@ body {
     
 }
 
-.cadeau-mobile {
-    display: none;
-}
 
 @media screen and (max-width: 768px) {
     .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .nav-buttons {
@@ -478,12 +484,10 @@ body {
         width: 100%;
     } */
 
-    .cadeau {
-        display: none;
-    }
-
-    .cadeau-mobile {
-        display:initial;
+    .cadeau-text {
+        margin-top: 0px;
+        font-size: 1em;
+        max-width: 75%;
     }
 
     .bloemenpaar {

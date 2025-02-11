@@ -440,6 +440,16 @@ body {
     margin-bottom: 10px;
 }
 
+.cadeau-text {
+    font-family: var(--subtext-font);
+    font-weight: 80;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    max-width: 50%;
+    line-height: 1.4;
+}
+
+
 /* Small text styling */
 .small-text {
     font-size: 1.2em;
@@ -477,9 +487,6 @@ body {
     font-size: 1.5em;
 }
 
-.cadeau-mobile {
-    display: none;
-}
 
 
 @media screen and (max-width: 768px) {
@@ -495,13 +502,7 @@ body {
         display: none;
     }
 
-    .cadeau {
-        display: none;
-    }
-
-    .cadeau-mobile {
-        display: initial;
-    }
+    
 
     .line-and-text-mobile {
         display: initial;
@@ -519,6 +520,12 @@ body {
     .slapen-text {
         margin-top: 0px;
         font-size: 0.4em;
+    }
+
+    .cadeau-text {
+        margin-top: 0px;
+        font-size: 1em;
+        max-width: 75%;
     }
 
     .takje-boven-main {

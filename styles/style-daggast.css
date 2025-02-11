@@ -58,6 +58,15 @@ body {
     font-size: 1.8em;
 }
 
+.cadeau-text {
+    font-family: var(--subtext-font);
+    font-weight: 80;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    max-width: 50%;
+    line-height: 1.4;
+}
+
 .takje-links {
     position: absolute;
     bottom: 0;
@@ -486,12 +495,10 @@ body {
         display: none;
     }
 
-    .cadeau {
-        display: none;
-    }
-
-    .cadeau-mobile {
-        display: initial;
+    .cadeau-text {
+        margin-top: 0px;
+        font-size: 1em;
+        max-width: 75%;
     }
 
     .line-and-text-mobile {
