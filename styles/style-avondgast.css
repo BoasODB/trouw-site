@@ -484,6 +484,7 @@ body {
         width: 100%;
     } */
 
+
     .cadeau-text {
         margin-top: 0px;
         font-size: 1em;
@@ -494,6 +495,7 @@ body {
         width: 30%;
         height: 30%;
         left: 0;
+        bottom: calc(var(--vh, 1vh) * -500);
     }
 
     #takje-weg {
