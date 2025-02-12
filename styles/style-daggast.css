@@ -486,14 +486,11 @@ body {
     .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .takje-boven-title, .vlek-linksboven-slapen {
         display: none; /* Hide images on phones */
     }
-/* 
-    .page {
-        width: 100%;
-    } */
 
-    .vlek-linksboven, .vlek-linksboven-slapen, .vlek-rechtsboven, .vlek-rechtsonder, .vlek-rechtsonder-2 {
+    img {
         display: none;
     }
+
 
     .cadeau-text {
         margin-top: 0px;

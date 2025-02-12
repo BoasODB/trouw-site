@@ -476,7 +476,7 @@ body {
 
 
 @media screen and (max-width: 768px) {
-    .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .nav-buttons {
+    img {
         display: none; /* Hide images on phones */
     }
 /* 
@@ -490,24 +490,19 @@ body {
         font-size: 1em;
         max-width: 75%;
     }
-
+/* 
     .bloemenpaar {
         width: 30%;
         height: 30%;
         left: 0;
         bottom: calc(var(--vh, 1vh) * -500);
-    }
+    } */
 
     #takje-weg {
         display: none;
     }
 
-    .vlek-rechtsboven {
-        /* bottom: -721vh; */
-        display: none;
-    }
-
-    .takje-boven-main, .takje-links-mobile {
+    .takje-boven-main {
         display: initial;
     }
 
@@ -526,15 +521,6 @@ body {
 
     .title {
         font-size: 3em; /* Make the title text smaller */
-    }
-
-    .vlek-linksboven {
-        /* top: 99vh; */
-        display: none;
-    }
-
-    .vlek-rechtsonder, .vlek-rechtsonder-2 {
-        display: none;
     }
 
 
