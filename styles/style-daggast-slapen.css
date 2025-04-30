@@ -487,6 +487,10 @@ body {
     font-size: 1.5em;
 }
 
+.routekaartje {
+    max-width: 35%;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -504,6 +508,11 @@ body {
 
     img {
         display: none;
+    }
+
+    .routekaartje {
+        display: initial;
+        max-width: 80%;
     }
 
     

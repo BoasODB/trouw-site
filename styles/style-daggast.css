@@ -481,6 +481,10 @@ body {
     font-size: 1.5em;
 }
 
+.routekaartje {
+    max-width: 35%;
+}
+
 
 @media screen and (max-width: 768px) {
     .takje-links, .bloem-rechts, .grote-bloem-links, .vlek-midden, .plant-links, .takje-boven-title, .vlek-linksboven-slapen {
@@ -489,6 +493,11 @@ body {
 
     img {
         display: none;
+    }
+
+    .routekaartje {
+        display: initial;
+        max-width: 80%;
     }
 
 

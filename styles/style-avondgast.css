@@ -474,6 +474,10 @@ body {
     
 }
 
+.routekaartje {
+    max-width: 35%;
+}
+
 
 @media screen and (max-width: 768px) {
     img {
@@ -483,6 +487,11 @@ body {
     .page {
         width: 100%;
     } */
+
+    .routekaartje {
+        display: initial;
+        max-width: 80%;
+    }
 
 
     .cadeau-text {
