@@ -22,7 +22,7 @@
             
         <p style="font-size: 1.5em;">Upload foto's</p>
         <input type="file" id="fileInput" multiple>
-        <button onclick="uploadFiles()">Upload</button>
+        <button onclick="upload()">Upload</button>
         <p id="status" style="margin-top: 10px; font-size: 1.5em;"></p>
         
         <form class="redirect-form" onsubmit="redirectToPage(event)">
@@ -33,35 +33,55 @@
 
     <script src="script.js"></script>
     <script>
-        async function uploadFiles() {
-          const files = document.getElementById('fileInput').files;
-          const status = document.getElementById('status');
+        async function upload() {
+          const files = document.getElementById("fileInput").files;
+          if (!files.length) return alert("Select at least one file");
+      
+          const status = document.getElementById("status");
           status.innerHTML = "";
-    
-          for (let file of files) {
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("name", file.name);
-            formData.append("type", file.type);
-    
-            try {
-              const response = await fetch("https://script.google.com/macros/s/AKfycbxLQl7Qr5FXPnf9tSN0p8tWSpvh_iYqIFJBEW9VvJMXn2IOfj69EnWf9NKzkzqxpcF6/exec", {
-                method: "POST",
-                body: formData,
-              });
-    
-              const text = await response.text();
-              if (text.startsWith("ERROR")) {
-                status.innerHTML += `<span style="color:red">${file.name}: ${text}</span><br>`;
-              } else {
-                status.innerHTML += `✅ ${file.name}: <a href="${text}" target="_blank">View</a><br>`;
-              }
-            } catch (error) {
-              status.innerHTML += `<span style="color:red">${file.name}: Upload failed - ${error.message}</span><br>`;
-            }
+      
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+      
+            await new Promise((resolve, reject) => {
+              const reader = new FileReader();
+      
+              reader.onload = async function () {
+                const base64 = reader.result.split(",")[1];
+      
+                const form = new FormData();
+                form.append("file", base64);
+                form.append("name", file.name);
+                form.append("type", file.type);
+      
+                try {
+                  const response = await fetch(
+                    "https://script.google.com/macros/s/AKfycbxLQl7Qr5FXPnf9tSN0p8tWSpvh_iYqIFJBEW9VvJMXn2IOfj69EnWf9NKzkzqxpcF6/exec",
+                    {
+                      method: "POST",
+                      body: form,
+                    }
+                  );
+      
+                  const url = await response.text();
+                  status.innerHTML += `File uploaded: <a href="${url}" target="_blank">${file.name}</a><br>`;
+                  resolve();
+                } catch (error) {
+                  status.innerHTML += `<span style="color:red">Error uploading ${file.name}: ${error.message}</span><br>`;
+                  resolve(); // resolve to continue uploading remaining files
+                }
+              };
+      
+              reader.onerror = () => {
+                status.innerHTML += `<span style="color:red">Error reading ${file.name}</span><br>`;
+                resolve();
+              };
+      
+              reader.readAsDataURL(file);
+            });
           }
         }
-    </script>
+      </script>
       
 </body>
 </html>
