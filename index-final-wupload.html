@@ -19,12 +19,11 @@
     <div class="container">
         <h1 class="title">Lisa & Jarno</h1>
         <p class="date">23.05.2025</p>
-        <form id="uploadForm" enctype="multipart/form-data">
-            <p style="font-size: 1.5em;">Upload foto's</p>
-            <input type="file" id="fileInput" multiple>
-            <button onclick="uploadFiles()">Upload</button>
-            <p id="status" style="margin-top: 10px; font-size: 1.5em;"></p>
-        </form>
+            
+        <p style="font-size: 1.5em;">Upload foto's</p>
+        <input type="file" id="fileInput" multiple>
+        <button onclick="uploadFiles()">Upload</button>
+        <p id="status" style="margin-top: 10px; font-size: 1.5em;"></p>
         
         <form class="redirect-form" onsubmit="redirectToPage(event)">
             <input type="text" id="redirect-input" placeholder="Vul hier uw code in" required>
