@@ -85,7 +85,7 @@ body {
     width: 200px;
 }
 
-button {
+button, input {
     padding: 10px 20px;
     font-size: 1em;
     border: none;
@@ -96,11 +96,38 @@ button {
     margin-left: 10px;
 }
 
-button:hover {
+button:hover, input:hover {
     background-color: #8db2a7;
 }
 
+.upload-button {
+    margin-top: 80px;
+    display: inline-block;
+    padding: 15px 30px; /* Adjust padding for size */
+    font-family: var(--text-font);
+    font-size: 2em; /* Text size */
+    text-align: center;
+    color: var(--text-color-green); /* Text color */
+    background-color: var(--text-color-white); /* Background color */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
 
+/* Hover effect */
+.upload-button:hover {
+    /* color: var(--text-color-white);
+    background-color: var(--text-color-green); Slightly lighter background */
+    transform: translateY(-4px); /* Lift effect */
+}
+
+/* Active (pressed) effect */
+.upload-button:active {
+    transform: translateY(4px); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
 
 @media screen and (max-width: 768px) {
     .takje-links, .bloem-rechts {
@@ -109,5 +136,9 @@ button:hover {
 
     .title {
         font-size: 3em; /* Make the title text smaller */
+    }
+
+    #fileInput {
+        max-width: 80%;
     }
 }
